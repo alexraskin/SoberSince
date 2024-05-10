@@ -46,3 +46,7 @@ Upon launching the app, users will be prompted to enter their name and sobriety 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Privacy Policy
+
+This app does not collect or store any personal data. All information entered by the user is stored locally on the device and is not shared with any third parties. The app does not use any analytics or tracking software.

@@ -68,7 +68,7 @@ struct CatGIFView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        let gif = UIImage(named: "catGIF")  // Ensure "catGIF.gif" is added to your assets
+        let gif = UIImage(named: "catGIF")
         imageView.image = gif
         return imageView
     }
@@ -93,7 +93,7 @@ struct SettingsView: View {
                         UserDefaults.standard.removeObject(forKey: "userName")
                         UserDefaults.standard.removeObject(forKey: "sobrietyStartDate")
                         userName = ""
-                        sobrietyStartDate = Date() // Reset to current date or some default
+                        sobrietyStartDate = Date()
                     }
                 }
             }
@@ -105,6 +105,7 @@ struct SettingsView: View {
                         UserDefaults.standard.set(userName, forKey: "userName")
                         showingSettings = false // Dismiss the sheet
                     }
+                    
                 }
             }
         }
