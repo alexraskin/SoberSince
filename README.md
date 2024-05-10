@@ -1,5 +1,7 @@
 # Sober Since
 
+<img src="https://i.gyazo.com/b492f7ee28abcedbb677eb73db0f502b.png" alt="icon" width="150"/>
+
 ## Introduction
 
 The Sobriety Tracker App is a simple yet powerful tool designed to help individuals track their sobriety journey. The app allows users to enter their sobriety start date and personal name, offering encouragement by displaying the number of days, months, or years they have remained sober. This app is very basic and is intended to be a learning tool for myself and others who are new to SwiftUI. I plan to add more features and improve the design in the future.
