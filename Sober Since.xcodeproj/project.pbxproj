@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8677496A2BEEAFA800328C6A /* catGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 867749692BEEAFA800328C6A /* catGIF.gif */; };
 		86E8D8742BED6DE00074F18E /* Sober_SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */; };
 		86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D8772BED6DE20074F18E /* Assets.xcassets */; };
 		86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D87B2BED6DE20074F18E /* Preview Assets.xcassets */; };
-		86E8D8862BED6DE20074F18E /* Sober_SinceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D8852BED6DE20074F18E /* Sober_SinceTests.swift */; };
-		86E8D8902BED6DE20074F18E /* Sober_SinceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D88F2BED6DE20074F18E /* Sober_SinceUITests.swift */; };
-		86E8D8922BED6DE20074F18E /* Sober_SinceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D8912BED6DE20074F18E /* Sober_SinceUITestsLaunchTests.swift */; };
 		86E8D89F2BED73760074F18E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D89E2BED73760074F18E /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -34,16 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		867749692BEEAFA800328C6A /* catGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catGIF.gif; sourceTree = "<group>"; };
 		86E8D8702BED6DE00074F18E /* Sober Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sober Since.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceApp.swift; sourceTree = "<group>"; };
 		86E8D8772BED6DE20074F18E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86E8D8792BED6DE20074F18E /* Sober_Since.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sober_Since.entitlements; sourceTree = "<group>"; };
 		86E8D87B2BED6DE20074F18E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		86E8D8812BED6DE20074F18E /* Sober SinceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sober SinceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		86E8D8852BED6DE20074F18E /* Sober_SinceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceTests.swift; sourceTree = "<group>"; };
 		86E8D88B2BED6DE20074F18E /* Sober SinceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sober SinceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		86E8D88F2BED6DE20074F18E /* Sober_SinceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceUITests.swift; sourceTree = "<group>"; };
-		86E8D8912BED6DE20074F18E /* Sober_SinceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		86E8D89E2BED73760074F18E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +73,6 @@
 			children = (
 				86E8D89E2BED73760074F18E /* .gitignore */,
 				86E8D8722BED6DE00074F18E /* Sober Since */,
-				86E8D8842BED6DE20074F18E /* Sober SinceTests */,
-				86E8D88E2BED6DE20074F18E /* Sober SinceUITests */,
 				86E8D8712BED6DE00074F18E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +90,7 @@
 		86E8D8722BED6DE00074F18E /* Sober Since */ = {
 			isa = PBXGroup;
 			children = (
+				867749692BEEAFA800328C6A /* catGIF.gif */,
 				86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */,
 				86E8D8772BED6DE20074F18E /* Assets.xcassets */,
 				86E8D8792BED6DE20074F18E /* Sober_Since.entitlements */,
@@ -110,23 +105,6 @@
 				86E8D87B2BED6DE20074F18E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		86E8D8842BED6DE20074F18E /* Sober SinceTests */ = {
-			isa = PBXGroup;
-			children = (
-				86E8D8852BED6DE20074F18E /* Sober_SinceTests.swift */,
-			);
-			path = "Sober SinceTests";
-			sourceTree = "<group>";
-		};
-		86E8D88E2BED6DE20074F18E /* Sober SinceUITests */ = {
-			isa = PBXGroup;
-			children = (
-				86E8D88F2BED6DE20074F18E /* Sober_SinceUITests.swift */,
-				86E8D8912BED6DE20074F18E /* Sober_SinceUITestsLaunchTests.swift */,
-			);
-			path = "Sober SinceUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8677496A2BEEAFA800328C6A /* catGIF.gif in Resources */,
 				86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */,
 				86E8D89F2BED73760074F18E /* .gitignore in Resources */,
 				86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */,
@@ -268,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E8D8862BED6DE20074F18E /* Sober_SinceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E8D8902BED6DE20074F18E /* Sober_SinceUITests.swift in Sources */,
-				86E8D8922BED6DE20074F18E /* Sober_SinceUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sober Since/Sober_Since.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_ASSET_PATHS = "\"Sober Since/Preview Content\"";
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
@@ -457,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sober Since/Sober_Since.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_ASSET_PATHS = "\"Sober Since/Preview Content\"";
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
