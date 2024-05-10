@@ -11,11 +11,8 @@ struct ContentView: View {
                 CatGIFView()
                     .frame(width: 200, height: 200)
                 if userName.isEmpty || sobrietyStartDate == Date() {
-                    Text("Please enter your information")
-                        .font(.title)
-                        .padding()
 
-                    Button("Enter Info") {
+                    Button("Please enter your Name and Sobriety Date") {
                         showingSettings = true
                     }
                     .padding()
@@ -28,14 +25,13 @@ struct ContentView: View {
                     Text("You have been sober for \(formatDuration(sobrietyStartDate, Date())) 🎉")
                         .bold()
                         .padding()
+                    Button("Settings") {
+                        showingSettings = true
+                    }
+                    .sheet(isPresented: $showingSettings) {
+                        SettingsView(sobrietyStartDate: $sobrietyStartDate, userName: $userName, showingSettings: $showingSettings)
+                    }
                     
-                }
-                
-                Button("Reset") {
-                    showingSettings = true
-                }
-                .sheet(isPresented: $showingSettings) {
-                    SettingsView(sobrietyStartDate: $sobrietyStartDate, userName: $userName, showingSettings: $showingSettings)
                 }
 
                 Spacer()
