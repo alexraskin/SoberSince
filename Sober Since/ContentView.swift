@@ -8,11 +8,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(0..<10) { item in
-                    GifImage("catGIF")
+                GifImage("catGIF")
                         .frame(width: 200, height: 200)
 
-                }
                 if userName.isEmpty || sobrietyStartDate == Date() {
 
                     Button("Please enter your Name and Sobriety Date") {
