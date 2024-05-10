@@ -37,6 +37,7 @@
 		867749692BEEAFA800328C6A /* catGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catGIF.gif; sourceTree = "<group>"; };
 		86A05AE02BEEB47C001C3CC4 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sober-Since-Info.plist"; sourceTree = SOURCE_ROOT; };
 		86E8D8702BED6DE00074F18E /* Sober Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sober Since.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceApp.swift; sourceTree = "<group>"; };
 		86E8D8772BED6DE20074F18E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		86E8D8722BED6DE00074F18E /* Sober Since */ = {
 			isa = PBXGroup;
 			children = (
+				86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */,
 				867749692BEEAFA800328C6A /* catGIF.gif */,
 				86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */,
 				86A05AE02BEEB47C001C3CC4 /* GifImage.swift */,
@@ -404,14 +406,19 @@
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sober-Since-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sober SInce";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -446,14 +453,19 @@
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sober-Since-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sober SInce";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
