@@ -1,60 +1,56 @@
-//
-//  Sober_SinceApp.swift
-//  Sober Since
-//
-//  Created by Alex Raskin on 5/9/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sobrietyStartDate: Date = {
-        UserDefaults.standard.object(forKey: "sobrietyStartDate") as? Date ?? Date()
-    }()
+    @State private var sobrietyStartDate: Date = UserDefaults.standard.object(forKey: "sobrietyStartDate") as? Date ?? Date()
     @State private var userName: String = UserDefaults.standard.string(forKey: "userName") ?? ""
-    @State private var tempUserName: String = ""
-    @State private var showingDatePicker: Bool = UserDefaults.standard.object(forKey: "sobrietyStartDate") == nil
+    @State private var showingSettings = false
 
     var body: some View {
-        VStack {
-            if userName.isEmpty {
-                TextField("Enter your name", text: $tempUserName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                Button("Save") {
-                    userName = tempUserName
-                    UserDefaults.standard.set(userName, forKey: "userName")
-                    showingDatePicker = true  // Show date picker when name is first saved
-                }
-                .padding()
-            } else {
-                Text("👋 Hi \(userName),")
-                    .font(.largeTitle)
-                    .padding()
-                if showingDatePicker {
-                    DatePicker("Start Date", selection: $sobrietyStartDate, displayedComponents: .date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
+        NavigationView {
+            VStack {
+                CatGIFView()
+                    .frame(width: 200, height: 200)
+                if userName.isEmpty || sobrietyStartDate == Date() {
+                    Text("Please enter your information")
+                        .font(.title)
                         .padding()
-                    Button("Confirm Date") {
-                        UserDefaults.standard.set(sobrietyStartDate, forKey: "sobrietyStartDate")
-                        showingDatePicker = false // Hide date picker after confirming date
+
+                    Button("Enter Info") {
+                        showingSettings = true
                     }
                     .padding()
+                    .sheet(isPresented: $showingSettings) {
+                        SettingsView(sobrietyStartDate: $sobrietyStartDate, userName: $userName, showingSettings: $showingSettings)
+                    }
+                } else {
+                    Text("👋 Hello, \(userName)")
+                        .padding()
+                    Text("You have been sober for \(formatDuration(sobrietyStartDate, Date())) 🎉")
+                        .bold()
+                        .padding()
+                    
                 }
-                Text("You have been sober for \(formatDuration(sobrietyStartDate, Date())) 🎉")
-                    .padding()
+                
                 Button("Reset") {
-                    UserDefaults.standard.removeObject(forKey: "userName")
-                    UserDefaults.standard.removeObject(forKey: "sobrietyStartDate")
-                    userName = ""
-                    tempUserName = ""
-                    showingDatePicker = true // Allow re-entry of name and date
+                    showingSettings = true
                 }
-                .padding()
+                .sheet(isPresented: $showingSettings) {
+                    SettingsView(sobrietyStartDate: $sobrietyStartDate, userName: $userName, showingSettings: $showingSettings)
+                }
+
+                Spacer()
+                Link("Github", destination: URL(string: "https://github.com/alexraskin/SoberSince")!)
+                    .font(.footnote)
+                    .foregroundColor(.blue)
+                    .padding()
+                Text("Made with ❤️ in Arizona")
+                    .font(.footnote)
             }
+            .navigationTitle("Sobriety Tracker")
+            .navigationBarTitleDisplayMode(.inline)
+            .padding()
         }
     }
-
     func formatDuration(_ from: Date, _ to: Date) -> String {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: from, to: to)
@@ -69,6 +65,53 @@ struct ContentView: View {
             parts.append("\(day) day" + (day > 1 ? "s" : ""))
         }
         return parts.joined(separator: ", ")
+    }
+}
+
+struct CatGIFView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        let gif = UIImage(named: "catGIF")  // Ensure "catGIF.gif" is added to your assets
+        imageView.image = gif
+        return imageView
+    }
+
+    func updateUIView(_ uiView: UIImageView, context: Context) {
+    }
+}
+
+struct SettingsView: View {
+    @Binding var sobrietyStartDate: Date
+    @Binding var userName: String
+    @Binding var showingSettings: Bool
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Personal Information")) {
+                    TextField("Enter your name", text: $userName)
+                    DatePicker("Sobriety Start Date", selection: $sobrietyStartDate, displayedComponents: .date)
+                    Button("Reset User Data") {
+                        // Resetting user data
+                        UserDefaults.standard.removeObject(forKey: "userName")
+                        UserDefaults.standard.removeObject(forKey: "sobrietyStartDate")
+                        userName = ""
+                        sobrietyStartDate = Date() // Reset to current date or some default
+                    }
+                }
+            }
+            .navigationTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        UserDefaults.standard.set(sobrietyStartDate, forKey: "sobrietyStartDate")
+                        UserDefaults.standard.set(userName, forKey: "userName")
+                        showingSettings = false // Dismiss the sheet
+                    }
+                }
+            }
+        }
     }
 }
 
