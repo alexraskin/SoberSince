@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8677496A2BEEAFA800328C6A /* catGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 867749692BEEAFA800328C6A /* catGIF.gif */; };
-		86A05AE12BEEB47D001C3CC4 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AE02BEEB47C001C3CC4 /* GifImage.swift */; };
 		86A05AE32BEEB4B7001C3CC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */; };
+		86A05AE62BEF38E5001C3CC4 /* logoDARK.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AE52BEF38E5001C3CC4 /* logoDARK.png */; };
+		86A05AE82BEF3911001C3CC4 /* logoLIGHT.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */; };
+		86A05AEC2BEF4069001C3CC4 /* funnyCAT.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */; };
 		86E8D8742BED6DE00074F18E /* Sober_SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */; };
 		86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D8772BED6DE20074F18E /* Assets.xcassets */; };
 		86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D87B2BED6DE20074F18E /* Preview Assets.xcassets */; };
@@ -34,10 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		867749692BEEAFA800328C6A /* catGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catGIF.gif; sourceTree = "<group>"; };
-		86A05AE02BEEB47C001C3CC4 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sober-Since-Info.plist"; sourceTree = SOURCE_ROOT; };
+		86A05AE52BEF38E5001C3CC4 /* logoDARK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoDARK.png; sourceTree = "<group>"; };
+		86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoLIGHT.png; sourceTree = "<group>"; };
+		86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = funnyCAT.jpg; sourceTree = "<group>"; };
 		86E8D8702BED6DE00074F18E /* Sober Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sober Since.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceApp.swift; sourceTree = "<group>"; };
 		86E8D8772BED6DE20074F18E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,9 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */,
-				867749692BEEAFA800328C6A /* catGIF.gif */,
 				86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */,
-				86A05AE02BEEB47C001C3CC4 /* GifImage.swift */,
+				86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */,
+				86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */,
+				86A05AE52BEF38E5001C3CC4 /* logoDARK.png */,
 				86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */,
 				86E8D8772BED6DE20074F18E /* Assets.xcassets */,
 				86E8D8792BED6DE20074F18E /* Sober_Since.entitlements */,
@@ -219,9 +222,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8677496A2BEEAFA800328C6A /* catGIF.gif in Resources */,
+				86A05AE62BEF38E5001C3CC4 /* logoDARK.png in Resources */,
+				86A05AEC2BEF4069001C3CC4 /* funnyCAT.jpg in Resources */,
 				86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */,
 				86E8D89F2BED73760074F18E /* .gitignore in Resources */,
+				86A05AE82BEF3911001C3CC4 /* logoLIGHT.png in Resources */,
 				86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A05AE12BEEB47D001C3CC4 /* GifImage.swift in Sources */,
 				86E8D8742BED6DE00074F18E /* Sober_SinceApp.swift in Sources */,
 				86A05AE32BEEB4B7001C3CC4 /* ContentView.swift in Sources */,
 			);
