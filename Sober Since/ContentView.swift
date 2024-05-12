@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 class TimerManager: ObservableObject {
-    @Published var currentDateTime = Date()
+    @Published var currentDateTime: Date = Date()
     var timerSubscription: AnyCancellable?
 
     init() {
@@ -24,11 +24,11 @@ struct ContentView: View {
     @State private var sobrietyStartDate: Date = UserDefaults.standard.object(forKey: "sobrietyStartDate") as? Date ?? Date()
     @State private var userName: String = UserDefaults.standard.string(forKey: "userName") ?? ""
     @State private var currentDateTime: Date = Date()
-    @State private var showingSettings = false
+    @State private var showingSettings: Bool = false
     @State private var dateError: Bool = false
-    @State private var tapCount = 0
-    @State private var showEasterEgg = false
-    @ObservedObject var timerManager = TimerManager()
+    @State private var tapCount: Int = 0
+    @State private var showEasterEgg: Bool = false
+    @ObservedObject var timerManager: TimerManager = TimerManager()
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     var body: some View {
@@ -39,13 +39,13 @@ struct ContentView: View {
                         .font(.largeTitle)
                         .padding()
                         .bold()
-                    Image("funnyCAT") // Make sure you have a 'funnyCat' image in your assets
+                    Image("funnyCAT")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
                 } else {
                     if colorScheme == .dark {
-                        Image("logoDARK") // Replace "LogoDark" with your dark mode logo asset name
+                        Image("logoDARK")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
@@ -107,8 +107,12 @@ struct ContentView: View {
                 .sheet(isPresented: $showingSettings) {
                     SettingsView(sobrietyStartDate: $sobrietyStartDate, userName: $userName, showingSettings: $showingSettings, dateError: $dateError)
                 }
-
+                .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.blue]), startPoint: .top, endPoint: .bottom)
+                )
         }
     }
     func formatDuration(_ from: Date, _ to: Date) -> String {
@@ -132,38 +136,40 @@ struct SettingsView: View {
     @Binding var userName: String
     @Binding var showingSettings: Bool
     @Binding var dateError: Bool
+    @State private var showingResetAlert = false
 
     var body: some View {
         NavigationView {
-            VStack {
-                Form {
-                    Section(header: Text("Personal Information")) {
-                        TextField("Enter your name", text: $userName)
-                        DatePicker("Sobriety Start Date", selection: $sobrietyStartDate, displayedComponents: .date)
-                            .onChange(of: sobrietyStartDate) { newValue in
-                                if newValue > Date() {
-                                    sobrietyStartDate = Date()  // Reset to today if future date is chosen
-                                    dateError = true
-                                } else {
-                                    dateError = false
-                                }
+            Form {
+                Section(header: Text("Personal Information")) {
+                    TextField("Enter your name", text: $userName)
+                    DatePicker("Sobriety Start Date", selection: $sobrietyStartDate, displayedComponents: .date)
+                        .onChange(of: sobrietyStartDate) { newValue in
+                            if newValue > Date() {
+                                sobrietyStartDate = Date()  // Reset to today if future date is chosen
+                                dateError = true
+                            } else {
+                                dateError = false
                             }
-                        Button("Reset User Data") {
-                            UserDefaults.standard.removeObject(forKey: "userName")
-                            UserDefaults.standard.removeObject(forKey: "sobrietyStartDate")
-                            userName = ""
-                            sobrietyStartDate = Date() // Reset to current date or some default
                         }
+                    Button("Reset User Data") {
+                        self.showingResetAlert = true
+                    }
+                    .foregroundColor(.red)
+                    .alert(isPresented: $showingResetAlert) {
+                        Alert(
+                            title: Text("Reset User Data?"),
+                            message: Text("Are you sure you would like reset your Sobriety date and name? This action cannot be undone."),
+                            primaryButton: .destructive(Text("Reset")) {
+                                UserDefaults.standard.removeObject(forKey: "userName")
+                                UserDefaults.standard.removeObject(forKey: "sobrietyStartDate")
+                                userName = ""
+                                sobrietyStartDate = Date()
+                            },
+                            secondaryButton: .cancel()
+                        )
                     }
                 }
-                Spacer() // Pushes the content to the top and link and text to the bottom
-                Link("Github", destination: URL(string: "https://github.com/alexraskin/SoberSince")!)
-                    .font(.footnote)
-                    .foregroundColor(.blue)
-                    .padding()
-                Text("Made with ❤️ in Arizona")
-                    .font(.footnote)
-                    .padding()
             }
             .navigationTitle("Settings")
             .toolbar {
@@ -178,4 +184,3 @@ struct SettingsView: View {
         }
     }
 }
-
