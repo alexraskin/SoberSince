@@ -28,8 +28,17 @@ struct ContentView: View {
     @State private var dateError: Bool = false
     @State private var tapCount: Int = 0
     @State private var showEasterEgg: Bool = false
+    @StateObject var quoteFetcher = QuoteFetcher()
     @ObservedObject var timerManager: TimerManager = TimerManager()
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    var quotes: [String] = [
+        "What lies behind us and what lies before us are tiny matters compared to what lies within us. –Ralph Waldo Emerson",
+        "The only journey is the one within. –Rainer Maria Rilke",
+        "Believe you can and you're halfway there. –Theodore Roosevelt",
+        "Change your thoughts and you change your world. –Norman Vincent Peale",
+        "With the new day comes new strength and new thoughts. –Eleanor Roosevelt"
+    ]
 
     var body: some View {
         NavigationView {
@@ -44,34 +53,19 @@ struct ContentView: View {
                         .scaledToFit()
                         .frame(width: 200, height: 200)
                 } else {
-                    if colorScheme == .dark {
-                        Image("logoDARK")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200, height: 200)
-                            .onTapGesture {
-                                self.tapCount += 1
-                                if self.tapCount == 5 {
-                                    self.showEasterEgg = true
-                                    self.tapCount = 0
-                                    
-                                }
-                                
+                    Image("logoDARK")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .onTapGesture {
+                            self.tapCount += 1
+                            if self.tapCount == 5 {
+                                self.showEasterEgg = true
+                                self.tapCount = 0
+                    
                             }
-                    } else {
-                        Image("logoLIGHT")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200, height: 200)
-                            .onTapGesture {
-                                self.tapCount += 1
-                                if self.tapCount == 5 {
-                                    self.showEasterEgg = true
-                                    self.tapCount = 0
-                                }
-                            }
+                        }
                     }
-                }
 
                 if userName.isEmpty || sobrietyStartDate == Date() {
 
@@ -98,6 +92,23 @@ struct ContentView: View {
                 if dateError {
                     Text("Please enter your Sobriety date.")
                         .foregroundColor(.red)
+                }
+                if !userName.isEmpty {
+                    Text(quoteFetcher.quote)
+                        .padding()
+                        .onAppear {
+                            quoteFetcher.fetchQuote()  // Fetch the quote when the view appears
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.blue]), startPoint: .top, endPoint: .bottom)
+                        )
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.blue, lineWidth: 2)
+                        )
+                        .padding()
                 }
                 Spacer()
                 Button("Settings") {
@@ -126,6 +137,10 @@ struct ContentView: View {
         if let minute = components.minute, minute > 0 { durationString += "\(minute) minute\(minute > 1 ? "s" : ""), " }
         if let second = components.second, second >= 0 { durationString += "\(second) second\(second != 1 ? "s" : "")" }
         return durationString.trimmingCharacters(in: CharacterSet(charactersIn: ", "))
+    }
+    func dailyQuote() -> String {
+        let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 0
+        return quotes[(dayOfYear - 1) % quotes.count] // Subtract 1 because `ordinality` starts at 1
     }
 
 }
@@ -183,4 +198,27 @@ struct SettingsView: View {
             }
         }
     }
+}
+
+class QuoteFetcher: ObservableObject {
+    @Published var quote: String = "Loading quote..."
+
+    func fetchQuote() {
+        guard let url = URL(string: "https://api.quotable.io/random") else { return }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(QuoteResponse.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.quote = decodedResponse.content + " —" + decodedResponse.author
+                    }
+                }
+            }
+        }.resume()
+    }
+}
+
+struct QuoteResponse: Codable {
+    var content: String
+    var author: String
 }
