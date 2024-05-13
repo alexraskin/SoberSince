@@ -1,10 +1,13 @@
 import SwiftUI
 
 @main
-struct SoberSince: App {
+struct MyApp: App {
+    @StateObject private var timerManager = TimerManager()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(timerManager)
         }
     }
 }
