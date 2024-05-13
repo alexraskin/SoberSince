@@ -82,6 +82,11 @@ struct ContentView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            self.showEasterEgg = false
+                        }
+                    }
             }
         }
     }
