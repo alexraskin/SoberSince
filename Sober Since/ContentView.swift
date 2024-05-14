@@ -19,6 +19,7 @@ struct ContentView: View {
     @State private var showEasterEgg: Bool = false
     @StateObject var quoteFetcher = QuoteFetcher()
     @EnvironmentObject var timerManager: TimerManager
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     var sobrietyStartDate: Date {
         get {
@@ -106,12 +107,16 @@ struct ContentView: View {
     }
     
     private var startButton: some View {
-        Button("Start") {
+        Button(action: {
             showingSettings = true
+        }) {
+            Text("Start")
+                .bold()
+                .foregroundColor(.white) // Ensure the text is visible
+                .padding()
+                .background(Color.cyan) // Add a background color for better visibility
+                .cornerRadius(10)
         }
-        .bold()
-        .foregroundColor(.cyan)
-        .padding()
         .sheet(isPresented: $showingSettings) {
             SettingsView(sobrietyStartTimestamp: $sobrietyStartTimestamp, userName: $userName, notificationsEnabled: $notificationsEnabled, notificationTime: $notificationTime, showingSettings: $showingSettings, dateError: $dateError)
         }
@@ -122,12 +127,14 @@ struct ContentView: View {
             Text("👋 Hello, \(userName)")
                 .padding()
                 .bold()
+                .foregroundColor(.primary)
             Text("You have been sober for \(formatDuration(sobrietyStartDate, timerManager.currentDateTime))")
                 .bold()
                 .padding()
                 .frame(maxWidth: .infinity) // Make sure the text does not exceed the screen width
                 .multilineTextAlignment(.center) // Center-align the text
                 .padding()
+                .foregroundColor(.primary)
         }
     }
     
@@ -162,10 +169,10 @@ struct ContentView: View {
             showingSettings = true
         }
         .padding()
+        .foregroundColor(.white)
         .sheet(isPresented: $showingSettings) {
             SettingsView(sobrietyStartTimestamp: $sobrietyStartTimestamp, userName: $userName, notificationsEnabled: $notificationsEnabled, notificationTime: $notificationTime, showingSettings: $showingSettings, dateError: $dateError)
         }
-        .foregroundColor(.white)
     }
     
     func formatDuration(_ from: Date, _ to: Date) -> String {

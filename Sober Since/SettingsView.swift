@@ -18,6 +18,8 @@ struct SettingsView: View {
     @State private var showingResetAlert = false
     @State private var appStoreVersion: String = "Loading..."
     @State private var isLoadingVersion = true
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("usageAnalyticsEnabled") private var usageAnalyticsEnabled = false
 
     var sobrietyStartDate: Date {
         get {
@@ -32,8 +34,9 @@ struct SettingsView: View {
         NavigationView {
             VStack {
                 Form {
-                    Section(header: Text("Personal Information")) {
+                    Section(header: Text("Personal Information").foregroundColor(.primary)) {
                         TextField("Enter your name", text: $userName)
+                            .foregroundColor(.primary)
                         DatePicker("Sobriety Start Date", selection: Binding(get: {
                             sobrietyStartDate
                         }, set: { newValue in
@@ -45,9 +48,11 @@ struct SettingsView: View {
                                 dateError = false
                             }
                         }), displayedComponents: .date)
+                            .foregroundColor(.primary)
                     }
-                    Section(header: Text("Notifications")) {
+                    Section(header: Text("Notifications").foregroundColor(.primary)) {
                         Toggle("Enable Notifications", isOn: $notificationsEnabled)
+                            .foregroundColor(.primary)
                             .onChange(of: notificationsEnabled) { value in
                                 if value {
                                     NotificationManager.requestNotificationPermission()
@@ -64,21 +69,33 @@ struct SettingsView: View {
                                     NotificationManager.scheduleMilestoneNotifications()
                                 }
                             }), displayedComponents: .hourAndMinute)
+                                .foregroundColor(.primary)
                         }
                     }
-                    Section(header: Text("About")) {
+                    Section(header: Text("Appearance").foregroundColor(.primary)) {
+                        Toggle("Dark Mode", isOn: $isDarkMode)
+                            .foregroundColor(.primary)
+                            .onChange(of: isDarkMode) { value in
+                                updateAppearance(isDarkMode: value)
+                            }
+                    }
+                    Section(header: Text("About").foregroundColor(.primary)) {
                         Text("This app helps you track your sobriety milestones and stay motivated.")
+                            .foregroundColor(.primary)
                         Link("Privacy Policy", destination: URL(string: "https://github.com/alexraskin/SoberSince?tab=readme-ov-file#privacy-policy")!)
                             .foregroundColor(.blue)
                         Link("Send Feedback", destination: URL(string: "mailto:root@00z.sh")!)
                             .foregroundColor(.blue)
                     }
-                    Section(header: Text("App Info")) {
-                        Text("Version \(appStoreVersion)")
-                            .onAppear {
-                                fetchAppStoreVersion()
-                            }
+                    Section(header: Text("App Info").foregroundColor(.primary)) {
+                        if isLoadingVersion {
+                            ProgressView()
+                        } else {
+                            Text("Version \(appStoreVersion)")
+                                .foregroundColor(.primary)
+                        }
                     }
+                    .foregroundColor(.red)
                     Button("Reset User Data") {
                         self.showingResetAlert = true
                     }
@@ -121,38 +138,49 @@ struct SettingsView: View {
                     }
                 }
             }
+            .onAppear {
+                fetchAppStoreVersion()
+            }
         }
     }
+
     private func fetchAppStoreVersion() {
-           guard let url = URL(string: "https://itunes.apple.com/lookup?bundleId=com.yourcompany.yourapp") else {
-               return
-           }
+        guard let url = URL(string: "https://itunes.apple.com/lookup?bundleId=twizy.Sober-Since") else {
+            return
+        }
 
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               guard let data = data, error == nil else {
-                   DispatchQueue.main.async {
-                       self.appStoreVersion = "N/A"
-                       self.isLoadingVersion = false
-                   }
-                   return
-               }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    self.appStoreVersion = "N/A"
+                    self.isLoadingVersion = false
+                }
+                return
+            }
 
-               do {
-                   if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                      let results = json["results"] as? [[String: Any]],
-                      let version = results.first?["version"] as? String {
-                       DispatchQueue.main.async {
-                           self.appStoreVersion = version
-                           self.isLoadingVersion = false
-                       }
-                   }
-               } catch {
-                   DispatchQueue.main.async {
-                       self.appStoreVersion = "N/A"
-                       self.isLoadingVersion = false
-                   }
-                   print("Failed to parse JSON: \(error)")
-               }
-           }.resume()
-       }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let results = json["results"] as? [[String: Any]],
+                   let version = results.first?["version"] as? String {
+                    DispatchQueue.main.async {
+                        self.appStoreVersion = version
+                        self.isLoadingVersion = false
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.appStoreVersion = "N/A"
+                    self.isLoadingVersion = false
+                }
+                print("Failed to parse JSON: \(error)")
+            }
+        }.resume()
+    }
+
+    private func updateAppearance(isDarkMode: Bool) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        for window in windowScene.windows {
+            window.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+        }
+    }
 }
