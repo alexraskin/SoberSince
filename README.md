@@ -1,6 +1,6 @@
 # Sober Since
 
-<img src="https://i.gyazo.com/b492f7ee28abcedbb677eb73db0f502b.png" alt="icon" width="150"/>
+<img src="https://i.gyazo.com/0b014a33401b0b3904d080782955bce3.png" alt="icon" width="150"/>
 
 ## Introduction
 
@@ -11,16 +11,16 @@ The Sobriety Tracker App is a simple yet powerful tool designed to help individu
 - **Personalized Greetings:** Users can input their name for personalized interactions with the app.
 - **Sobriety Duration Tracking:** Calculates and displays the time elapsed since the sobriety start date.
 - **Settings Page:** Allows users to update their start date and name or reset their information.
+- **Simple Design:** Clean and minimalistic interface for easy navigation.
+- **Encouraging Messages:** Displays motivational messages to support users on their journey.
 - **Privacy-Focused:** No personal data is stored externally, ensuring user privacy.
 - **Mobile Compatibility:** Fully functional on iOS devices.
 
 ## Screenshots
 
-<img src="https://i.gyazo.com/46fe7ddec4eb09d6710e10999807e8f1.png" alt="screenshot1" width="200"/>
+<img src="https://i.gyazo.com/ba572bb2a5653663db264667c3fb7de6.png" alt="screenshot1" width="200"/>
 
-<img src="https://i.gyazo.com/0249f25a735d7647da5a7fd7b7726d76.png" alt="screenshot2" width="200"/>
-
-<img src="https://i.gyazo.com/1151e1d871a95f633429c877e406599a.png" alt="screenshot3" width="200"/>
+<img src="https://i.gyazo.com/69baabe48f889631146c502000d3c86e.png" alt="screenshot2" width="200"/>
 
 ---
 
