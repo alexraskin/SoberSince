@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		86A05AE32BEEB4B7001C3CC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */; };
-		86A05AE62BEF38E5001C3CC4 /* logoDARK.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AE52BEF38E5001C3CC4 /* logoDARK.png */; };
-		86A05AE82BEF3911001C3CC4 /* logoLIGHT.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */; };
-		86A05AEC2BEF4069001C3CC4 /* funnyCAT.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */; };
+		86A05AF22BF2FDFA001C3CC4 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AF12BF2FDFA001C3CC4 /* TimerManager.swift */; };
+		86A05AF42BF2FE0D001C3CC4 /* QuoteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AF32BF2FE0D001C3CC4 /* QuoteFetcher.swift */; };
+		86A05AF62BF2FE2A001C3CC4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AF52BF2FE2A001C3CC4 /* NotificationManager.swift */; };
+		86A05AF82BF2FE71001C3CC4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A05AF72BF2FE71001C3CC4 /* SettingsView.swift */; };
 		86E8D8742BED6DE00074F18E /* Sober_SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */; };
 		86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D8772BED6DE20074F18E /* Assets.xcassets */; };
 		86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E8D87B2BED6DE20074F18E /* Preview Assets.xcassets */; };
@@ -37,9 +38,10 @@
 /* Begin PBXFileReference section */
 		86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sober-Since-Info.plist"; sourceTree = SOURCE_ROOT; };
-		86A05AE52BEF38E5001C3CC4 /* logoDARK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoDARK.png; sourceTree = "<group>"; };
-		86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoLIGHT.png; sourceTree = "<group>"; };
-		86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = funnyCAT.jpg; sourceTree = "<group>"; };
+		86A05AF12BF2FDFA001C3CC4 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		86A05AF32BF2FE0D001C3CC4 /* QuoteFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFetcher.swift; sourceTree = "<group>"; };
+		86A05AF52BF2FE2A001C3CC4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		86A05AF72BF2FE71001C3CC4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		86E8D8702BED6DE00074F18E /* Sober Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sober Since.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sober_SinceApp.swift; sourceTree = "<group>"; };
 		86E8D8772BED6DE20074F18E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,10 +101,11 @@
 			children = (
 				86A05AE42BEEBD64001C3CC4 /* Sober-Since-Info.plist */,
 				86E8D8732BED6DE00074F18E /* Sober_SinceApp.swift */,
-				86A05AE72BEF3911001C3CC4 /* logoLIGHT.png */,
-				86A05AEB2BEF4069001C3CC4 /* funnyCAT.jpg */,
-				86A05AE52BEF38E5001C3CC4 /* logoDARK.png */,
 				86A05AE22BEEB4B7001C3CC4 /* ContentView.swift */,
+				86A05AF52BF2FE2A001C3CC4 /* NotificationManager.swift */,
+				86A05AF32BF2FE0D001C3CC4 /* QuoteFetcher.swift */,
+				86A05AF72BF2FE71001C3CC4 /* SettingsView.swift */,
+				86A05AF12BF2FDFA001C3CC4 /* TimerManager.swift */,
 				86E8D8772BED6DE20074F18E /* Assets.xcassets */,
 				86E8D8792BED6DE20074F18E /* Sober_Since.entitlements */,
 				86E8D87A2BED6DE20074F18E /* Preview Content */,
@@ -222,11 +225,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A05AE62BEF38E5001C3CC4 /* logoDARK.png in Resources */,
-				86A05AEC2BEF4069001C3CC4 /* funnyCAT.jpg in Resources */,
 				86E8D87C2BED6DE20074F18E /* Preview Assets.xcassets in Resources */,
 				86E8D89F2BED73760074F18E /* .gitignore in Resources */,
-				86A05AE82BEF3911001C3CC4 /* logoLIGHT.png in Resources */,
 				86E8D8782BED6DE20074F18E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A05AF42BF2FE0D001C3CC4 /* QuoteFetcher.swift in Sources */,
+				86A05AF22BF2FDFA001C3CC4 /* TimerManager.swift in Sources */,
+				86A05AF62BF2FE2A001C3CC4 /* NotificationManager.swift in Sources */,
+				86A05AF82BF2FE71001C3CC4 /* SettingsView.swift in Sources */,
 				86E8D8742BED6DE00074F18E /* Sober_SinceApp.swift in Sources */,
 				86A05AE32BEEB4B7001C3CC4 /* ContentView.swift in Sources */,
 			);
@@ -405,7 +409,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sober Since/Sober_Since.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sober Since/Preview Content\"";
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
@@ -431,7 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "twizy.Sober-Since";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -452,7 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sober Since/Sober_Since.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sober Since/Preview Content\"";
 				DEVELOPMENT_TEAM = A55QUN26SU;
 				ENABLE_PREVIEWS = YES;
@@ -478,7 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "twizy.Sober-Since";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
